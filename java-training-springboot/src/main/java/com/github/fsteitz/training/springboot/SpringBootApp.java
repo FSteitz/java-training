@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @org.springframework.boot.autoconfigure.SpringBootApplication
-public class SpringBootApplication {
+public class SpringBootApp {
 
    public static void main(String[] args) {
-      SpringApplication.run(SpringBootApplication.class, args);
+      SpringApplication.run(SpringBootApp.class, args);
    }
 
    @RestController
