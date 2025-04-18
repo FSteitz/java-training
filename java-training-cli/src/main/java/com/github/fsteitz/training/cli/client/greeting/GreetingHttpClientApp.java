@@ -33,6 +33,11 @@ public class GreetingHttpClientApp {
          System.out.println(greeting.text());
          System.out.println("==================================================");
          System.out.println("Thank you! I'm ready! ;-)");
+         System.out.println("""
+                  O      O
+                 /|\\    /|\\
+                 / \\    / \\
+               """);
       });
    }
 
