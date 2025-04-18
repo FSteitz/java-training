@@ -11,6 +11,12 @@
     <artifactId>java-training-springboot</artifactId>
 
     <dependencies>
+        <!-- Project -->
+        <dependency>
+            <groupId>com.github.fsteitz</groupId>
+            <artifactId>java-training-common</artifactId>
+        </dependency>
+
         <!-- Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

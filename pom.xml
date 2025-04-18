@@ -21,6 +21,13 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- Project -->
+            <dependency>
+                <groupId>com.github.fsteitz</groupId>
+                <artifactId>java-training-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
             <!-- Spring Boot -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -54,6 +61,7 @@
     </dependencyManagement>
 
     <modules>
+        <module>java-training-common</module>
         <module>java-training-cli</module>
         <module>java-training-springboot</module>
     </modules>
