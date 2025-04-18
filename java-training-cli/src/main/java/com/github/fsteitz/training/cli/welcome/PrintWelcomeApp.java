@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.fsteitz.training.cli;
+package com.github.fsteitz.training.cli.welcome;
 
-public class CliApp {
+public class PrintWelcomeApp {
 
    public static void main(String[] args) {
       System.out.println("Welcome to the training!");
