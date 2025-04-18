@@ -25,6 +25,6 @@ public class GreetingController {
 
    @GetMapping(value = "/greet", produces = MediaType.APPLICATION_JSON_VALUE)
    public String greet() {
-      return JsonUtil.toJson(new Greeting("Welcome to the training!"));
+      return JsonUtil.toJson(new Greeting("Welcome to the sword training!"));
    }
 }

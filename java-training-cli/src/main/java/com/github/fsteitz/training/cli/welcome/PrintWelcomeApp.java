@@ -18,7 +18,7 @@ package com.github.fsteitz.training.cli.welcome;
 public class PrintWelcomeApp {
 
    public static void main(String[] args) {
-      System.out.println("Welcome to the training!");
+      System.out.println("Welcome to the sword training!");
       System.out.println("My name is Geralt of Rivia.");
       System.out.println("Draw your sword, Ciri!");
    }
