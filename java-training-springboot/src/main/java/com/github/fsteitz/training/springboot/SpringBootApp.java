@@ -1,7 +1,10 @@
 package com.github.fsteitz.training.springboot;
 
+import com.github.fsteitz.training.common.JsonUtil;
+import com.github.fsteitz.training.springboot.greeting.Greeting;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,9 +18,9 @@ public class SpringBootApp {
    @RestController
    public static class GreetingController {
 
-      @GetMapping("/greet")
+      @GetMapping(value = "/greet", produces = MediaType.APPLICATION_JSON_VALUE)
       public String greet() {
-         return "Welcome to the training!";
+         return JsonUtil.toJson(new Greeting("Welcome to the training!"));
       }
    }
 }
