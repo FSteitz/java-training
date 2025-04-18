@@ -9,4 +9,13 @@
     </parent>
 
     <artifactId>java-training-cli</artifactId>
+
+    <dependencies>
+        <!-- Project -->
+        <dependency>
+            <groupId>com.github.fsteitz</groupId>
+            <artifactId>java-training-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 </project>

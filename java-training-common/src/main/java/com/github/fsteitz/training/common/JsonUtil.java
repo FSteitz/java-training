@@ -33,4 +33,12 @@ public final class JsonUtil {
          throw new TrainingException("Object could not be serialized as JSON", e);
       }
    }
+
+   public static <T> T fromJson(String json, Class<T> valueType) {
+      try {
+         return OBJECT_MAPPER.readValue(json, valueType);
+      } catch (JsonProcessingException e) {
+         throw new TrainingException("JSON could not be parsed", e);
+      }
+   }
 }
