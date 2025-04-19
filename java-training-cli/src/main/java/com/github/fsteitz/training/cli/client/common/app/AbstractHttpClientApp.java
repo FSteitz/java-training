@@ -15,7 +15,7 @@
  */
 package com.github.fsteitz.training.cli.client.common.app;
 
-import com.github.fsteitz.training.cli.client.common.http.TrainingHttpClient;
+import com.github.fsteitz.training.cli.client.common.http.DefaultTrainingHttpClient;
 
 /**
  * Default implementation of {@link HttpClientApp} that shall be extended by all CLI applications that retrieve data
@@ -31,7 +31,7 @@ public abstract class AbstractHttpClientApp<V> implements HttpClientApp {
    @Override
    public void printCliOutput() {
       printCliSeparatorLine();
-      new TrainingHttpClient(getRemoteMethodPath()).receive(this::parseResponseBody, this::onResponseReceived);
+      new DefaultTrainingHttpClient(getRemoteMethodPath()).receive(this::parseResponseBody, this::onResponseReceived);
    }
 
    /**

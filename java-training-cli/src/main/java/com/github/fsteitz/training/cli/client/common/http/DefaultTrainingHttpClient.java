@@ -23,13 +23,13 @@ import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public final class TrainingHttpClient {
+public final class DefaultTrainingHttpClient {
 
    private static final String BASE_ENDPOINT = "http://localhost:8080/";
 
    private final String endpoint;
 
-   public TrainingHttpClient(String controllerPath) {
+   public DefaultTrainingHttpClient(String controllerPath) {
       Objects.requireNonNull(controllerPath, "controller path must not be null");
       this.endpoint = BASE_ENDPOINT + controllerPath;
    }
