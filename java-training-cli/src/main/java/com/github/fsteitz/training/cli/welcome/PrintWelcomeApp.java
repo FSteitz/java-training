@@ -16,6 +16,7 @@
 package com.github.fsteitz.training.cli.welcome;
 
 import com.github.fsteitz.training.cli.common.app.CliApp;
+import com.github.fsteitz.training.cli.common.util.CliOutputUtil;
 
 /**
  * A simple CLI application that only outputs text.
@@ -36,7 +37,9 @@ public class PrintWelcomeApp implements CliApp {
     */
    @Override
    public void printCliOutput() {
+      CliOutputUtil.printSeparatorLine();
       System.out.println("Welcome to the sword training!");
+      CliOutputUtil.printSeparatorLine();
       System.out.println("My name is Geralt of Rivia.");
       System.out.println("Draw your sword, Ciri!");
    }
