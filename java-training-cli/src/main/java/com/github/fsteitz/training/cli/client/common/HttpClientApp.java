@@ -21,7 +21,7 @@ package com.github.fsteitz.training.cli.client.common;
  *
  * @author Florian Steitz
  */
-public interface HttpClientApp<V> {
+public interface HttpClientApp {
 
    /**
     * Generates the console output based on a response of a REST endpoint.

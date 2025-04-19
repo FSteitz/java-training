@@ -21,7 +21,7 @@ package com.github.fsteitz.training.cli.client.common;
  *
  * @author Florian Steitz
  */
-public abstract class AbstractHttpClientApp<V> implements HttpClientApp<V> {
+public abstract class AbstractHttpClientApp<V> implements HttpClientApp {
 
    /**
     * {@inheritDoc}

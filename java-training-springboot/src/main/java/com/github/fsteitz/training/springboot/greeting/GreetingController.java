@@ -33,7 +33,7 @@ public class GreetingController {
     * Returns a {@link Greeting} for sword training.
     */
    @GetMapping(value = "/training", produces = MediaType.APPLICATION_JSON_VALUE)
-   public Greeting greet() {
+   public Greeting greetForTraining() {
       return new Greeting("Welcome to the sword training!");
    }
 }
