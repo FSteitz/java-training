@@ -15,7 +15,7 @@
  */
 package com.github.fsteitz.training.cli.client.greeting;
 
-import com.github.fsteitz.training.cli.client.common.AbstractHttpClientApp;
+import com.github.fsteitz.training.cli.client.common.app.AbstractHttpClientApp;
 import com.github.fsteitz.training.common.JsonUtil;
 
 /**

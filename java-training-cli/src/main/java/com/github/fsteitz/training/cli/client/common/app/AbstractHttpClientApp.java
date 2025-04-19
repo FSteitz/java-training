@@ -13,7 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.fsteitz.training.cli.client.common;
+package com.github.fsteitz.training.cli.client.common.app;
+
+import com.github.fsteitz.training.cli.client.common.http.TrainingHttpClient;
 
 /**
  * Default implementation of {@link HttpClientApp} that shall be extended by all CLI applications that retrieve data

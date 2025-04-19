@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.fsteitz.training.cli.client.common;
+package com.github.fsteitz.training.cli.client.common.http;
 
 import java.net.URI;
 import java.net.http.HttpClient;

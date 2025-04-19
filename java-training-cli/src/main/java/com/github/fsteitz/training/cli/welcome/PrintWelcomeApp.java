@@ -15,7 +15,7 @@
  */
 package com.github.fsteitz.training.cli.welcome;
 
-import com.github.fsteitz.training.cli.client.common.CliApp;
+import com.github.fsteitz.training.cli.client.common.app.CliApp;
 
 /**
  * A simple CLI application that only outputs text.
