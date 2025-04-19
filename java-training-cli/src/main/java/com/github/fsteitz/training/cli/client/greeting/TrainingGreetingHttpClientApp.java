@@ -18,14 +18,14 @@ package com.github.fsteitz.training.cli.client.greeting;
 import com.github.fsteitz.training.cli.client.common.TrainingHttpClient;
 import com.github.fsteitz.training.common.JsonUtil;
 
-public class GreetingHttpClientApp {
+public class TrainingGreetingHttpClientApp {
 
    private static final String CONTROLLER_PATH = "greeting/training";
 
    public static void main(String[] args) {
       System.out.println("==================================================");
       new TrainingHttpClient(CONTROLLER_PATH)
-            .receive(GreetingHttpClientApp::parseGreeting, greeting -> {
+            .receive(TrainingGreetingHttpClientApp::parseGreeting, greeting -> {
                System.out.println(greeting.text());
                System.out.println("==================================================");
                System.out.println("Thank you! I'm ready! ;-)");
