@@ -17,6 +17,7 @@ package com.github.fsteitz.training.cli.client.common.app;
 
 import com.github.fsteitz.training.cli.client.common.http.DefaultTrainingHttpClient;
 import com.github.fsteitz.training.cli.client.common.http.TrainingHttpClient;
+import com.github.fsteitz.training.cli.common.util.CliOutputUtil;
 
 import java.util.Objects;
 
@@ -51,15 +52,8 @@ public abstract class AbstractHttpClientApp<V> implements HttpClientApp {
     */
    @Override
    public void printCliOutput() {
-      printCliSeparatorLine();
+      CliOutputUtil.printSeparatorLine();
       httpClient.receive(this::parseResponseBody, this::onResponseReceived);
-   }
-
-   /**
-    * Outputs a single line that is supposed to visually separate other console outputs.
-    */
-   protected void printCliSeparatorLine() {
-      System.out.println("==================================================");
    }
 
    /**

@@ -17,6 +17,7 @@ package com.github.fsteitz.training.cli.client.sword;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.github.fsteitz.training.cli.client.common.app.AbstractHttpClientApp;
+import com.github.fsteitz.training.cli.common.util.CliOutputUtil;
 import com.github.fsteitz.training.common.JsonUtil;
 
 import java.util.List;
@@ -55,7 +56,7 @@ public class SwordHttpClientApp extends AbstractHttpClientApp<List<SwordVO>> {
          System.out.printf("- %s (%s)%n", sword.name(), JsonUtil.toJson(sword.attributes()));
       }
 
-      printCliSeparatorLine();
+      CliOutputUtil.printSeparatorLine();
       System.out.println("I now embark on my mission!");
    }
 

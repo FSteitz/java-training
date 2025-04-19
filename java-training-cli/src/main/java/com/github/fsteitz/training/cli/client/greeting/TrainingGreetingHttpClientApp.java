@@ -16,6 +16,7 @@
 package com.github.fsteitz.training.cli.client.greeting;
 
 import com.github.fsteitz.training.cli.client.common.app.AbstractHttpClientApp;
+import com.github.fsteitz.training.cli.common.util.CliOutputUtil;
 import com.github.fsteitz.training.common.JsonUtil;
 
 /**
@@ -48,7 +49,7 @@ public class TrainingGreetingHttpClientApp extends AbstractHttpClientApp<Greetin
    @Override
    protected void onResponseReceived(GreetingVO greeting) {
       System.out.println(greeting.text());
-      printCliSeparatorLine();
+      CliOutputUtil.printSeparatorLine();
       System.out.println("Thank you! I'm ready! ;-)");
       System.out.println("""
                O      O
