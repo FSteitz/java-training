@@ -25,7 +25,7 @@ import java.util.function.Consumer;
 
 public class GreetingHttpClientApp {
 
-   private static final String ENDPOINT = "http://localhost:8080/greet";
+   private static final String ENDPOINT = "http://localhost:8080/greeting/training";
 
    public static void main(String[] args) {
       GreetingHttpClientApp greetingHttpClientApp = new GreetingHttpClientApp();
