@@ -18,4 +18,6 @@ package com.github.fsteitz.training.cli.client.common;
 public interface HttpClientApp<V> {
 
    void printCliOutput();
+
+   String getRemoteMethodPath();
 }

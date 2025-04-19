@@ -21,8 +21,6 @@ import com.github.fsteitz.training.common.JsonUtil;
 
 public class TrainingGreetingHttpClientApp extends AbstractHttpClientApp<GreetingVO> {
 
-   private static final String CONTROLLER_PATH = "greeting/training";
-
    public static void main(String[] args) {
       new TrainingGreetingHttpClientApp().printCliOutput();
    }
@@ -30,7 +28,7 @@ public class TrainingGreetingHttpClientApp extends AbstractHttpClientApp<Greetin
    @Override
    public void printCliOutput() {
       System.out.println("==================================================");
-      new TrainingHttpClient(CONTROLLER_PATH)
+      new TrainingHttpClient(getRemoteMethodPath())
             .receive(this::parseResponseBody, greeting -> {
                System.out.println(greeting.text());
                System.out.println("==================================================");
@@ -43,6 +41,17 @@ public class TrainingGreetingHttpClientApp extends AbstractHttpClientApp<Greetin
             });
    }
 
+   /**
+    * {@inheritDoc}
+    */
+   @Override
+   public String getRemoteMethodPath() {
+      return "greeting/training";
+   }
+
+   /**
+    * {@inheritDoc}
+    */
    @Override
    protected GreetingVO parseResponseBody(String json) {
       return JsonUtil.fromJson(json, GreetingVO.class);

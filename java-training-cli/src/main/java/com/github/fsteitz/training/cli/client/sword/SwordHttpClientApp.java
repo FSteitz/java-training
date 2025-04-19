@@ -24,8 +24,6 @@ import java.util.List;
 
 public class SwordHttpClientApp extends AbstractHttpClientApp<List<SwordVO>> {
 
-   private static final String CONTROLLER_PATH = "sword/list";
-
    public static void main(String[] args) {
       new SwordHttpClientApp().printCliOutput();
    }
@@ -33,7 +31,7 @@ public class SwordHttpClientApp extends AbstractHttpClientApp<List<SwordVO>> {
    @Override
    public void printCliOutput() {
       System.out.println("==================================================");
-      new TrainingHttpClient(CONTROLLER_PATH)
+      new TrainingHttpClient(getRemoteMethodPath())
             .receive(this::parseResponseBody, swordList -> {
                System.out.println("I, the great swordmaster of the northern kingdoms, shall carry the following swords:");
 
@@ -46,6 +44,17 @@ public class SwordHttpClientApp extends AbstractHttpClientApp<List<SwordVO>> {
             });
    }
 
+   /**
+    * {@inheritDoc}
+    */
+   @Override
+   public String getRemoteMethodPath() {
+      return "sword/list";
+   }
+
+   /**
+    * {@inheritDoc}
+    */
    @Override
    protected List<SwordVO> parseResponseBody(String json) {
       return JsonUtil.fromJsonAsList(json, new TypeReference<>() {
