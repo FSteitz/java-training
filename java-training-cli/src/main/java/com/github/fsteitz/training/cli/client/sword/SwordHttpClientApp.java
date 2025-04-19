@@ -27,6 +27,14 @@ public class SwordHttpClientApp extends AbstractHttpClientApp<List<SwordVO>> {
       new SwordHttpClientApp().printCliOutput();
    }
 
+   /**
+    * {@inheritDoc}
+    */
+   @Override
+   public String getRemoteMethodPath() {
+      return "sword/list";
+   }
+
    @Override
    protected void onResponseReceived(List<SwordVO> swordList) {
       System.out.println("I, the great swordmaster of the northern kingdoms, shall carry the following swords:");
@@ -37,14 +45,6 @@ public class SwordHttpClientApp extends AbstractHttpClientApp<List<SwordVO>> {
 
       System.out.println("==================================================");
       System.out.println("I now embark on my mission!");
-   }
-
-   /**
-    * {@inheritDoc}
-    */
-   @Override
-   public String getRemoteMethodPath() {
-      return "sword/list";
    }
 
    /**

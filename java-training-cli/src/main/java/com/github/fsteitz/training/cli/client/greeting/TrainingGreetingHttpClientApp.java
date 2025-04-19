@@ -24,6 +24,14 @@ public class TrainingGreetingHttpClientApp extends AbstractHttpClientApp<Greetin
       new TrainingGreetingHttpClientApp().printCliOutput();
    }
 
+   /**
+    * {@inheritDoc}
+    */
+   @Override
+   public String getRemoteMethodPath() {
+      return "greeting/training";
+   }
+
    @Override
    protected void onResponseReceived(GreetingVO greeting) {
       System.out.println(greeting.text());
@@ -34,14 +42,6 @@ public class TrainingGreetingHttpClientApp extends AbstractHttpClientApp<Greetin
               /|\\    /|\\
               / \\    / \\
             """);
-   }
-
-   /**
-    * {@inheritDoc}
-    */
-   @Override
-   public String getRemoteMethodPath() {
-      return "greeting/training";
    }
 
    /**
