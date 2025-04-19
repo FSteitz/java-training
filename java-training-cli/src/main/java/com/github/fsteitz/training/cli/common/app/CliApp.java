@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.fsteitz.training.cli.client.common.app;
+package com.github.fsteitz.training.cli.common.app;
 
 /**
  * Interface that shall be implemented by all CLI applications.

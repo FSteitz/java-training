@@ -15,6 +15,8 @@
  */
 package com.github.fsteitz.training.cli.client.common.app;
 
+import com.github.fsteitz.training.cli.common.app.CliApp;
+
 /**
  * Interface that shall be implemented by all CLI applications that retrieve data from REST endpoints and generate
  * console outputs based on their responses.
