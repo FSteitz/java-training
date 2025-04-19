@@ -23,7 +23,10 @@ import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public final class DefaultTrainingHttpClient {
+/**
+ * @author Florian Steitz
+ */
+public final class DefaultTrainingHttpClient implements TrainingHttpClient {
 
    private static final String BASE_ENDPOINT = "http://localhost:8080/";
 
@@ -34,7 +37,11 @@ public final class DefaultTrainingHttpClient {
       this.endpoint = BASE_ENDPOINT + controllerPath;
    }
 
-   public  <T> void receive(Function<String, T> bodyParser, Consumer<T> responseReceiver) {
+   /**
+    * {@inheritDoc}
+    */
+   @Override
+   public <T> void receive(Function<String, T> bodyParser, Consumer<T> responseReceiver) {
       Objects.requireNonNull(responseReceiver, "body parser must not be null");
       Objects.requireNonNull(responseReceiver, "response receiver must not be null");
 

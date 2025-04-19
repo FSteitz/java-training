@@ -16,14 +16,35 @@
 package com.github.fsteitz.training.cli.client.common.app;
 
 import com.github.fsteitz.training.cli.client.common.http.DefaultTrainingHttpClient;
+import com.github.fsteitz.training.cli.client.common.http.TrainingHttpClient;
+
+import java.util.Objects;
 
 /**
  * Default implementation of {@link HttpClientApp} that shall be extended by all CLI applications that retrieve data
  * from REST endpoints and generate console outputs based on their responses.
  *
+ * @param <V> The object(s) returned by the REST endpoint called by this app.
  * @author Florian Steitz
  */
 public abstract class AbstractHttpClientApp<V> implements HttpClientApp {
+
+   private final TrainingHttpClient httpClient;
+
+   /**
+    * Initializes this instance with the default implementation of {@link TrainingHttpClient}.
+    */
+   protected AbstractHttpClientApp() {
+      this.httpClient = new DefaultTrainingHttpClient(getRemoteMethodPath());
+   }
+
+   /**
+    * Initializes this instance with the provided implementation of {@link TrainingHttpClient}.
+    */
+   protected AbstractHttpClientApp(TrainingHttpClient httpClient) {
+      Objects.requireNonNull(httpClient, "HTTP client must not be null");
+      this.httpClient = httpClient;
+   }
 
    /**
     * {@inheritDoc}
@@ -31,7 +52,7 @@ public abstract class AbstractHttpClientApp<V> implements HttpClientApp {
    @Override
    public void printCliOutput() {
       printCliSeparatorLine();
-      new DefaultTrainingHttpClient(getRemoteMethodPath()).receive(this::parseResponseBody, this::onResponseReceived);
+      httpClient.receive(this::parseResponseBody, this::onResponseReceived);
    }
 
    /**
