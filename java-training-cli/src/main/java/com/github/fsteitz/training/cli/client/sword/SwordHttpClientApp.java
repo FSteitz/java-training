@@ -17,7 +17,6 @@ package com.github.fsteitz.training.cli.client.sword;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.github.fsteitz.training.cli.client.common.AbstractHttpClientApp;
-import com.github.fsteitz.training.cli.client.common.TrainingHttpClient;
 import com.github.fsteitz.training.common.JsonUtil;
 
 import java.util.List;
@@ -29,19 +28,15 @@ public class SwordHttpClientApp extends AbstractHttpClientApp<List<SwordVO>> {
    }
 
    @Override
-   public void printCliOutput() {
+   protected void onResponseReceived(List<SwordVO> swordList) {
+      System.out.println("I, the great swordmaster of the northern kingdoms, shall carry the following swords:");
+
+      for (SwordVO sword : swordList) {
+         System.out.printf("- %s (%s)%n", sword.name(), JsonUtil.toJson(sword.attributes()));
+      }
+
       System.out.println("==================================================");
-      new TrainingHttpClient(getRemoteMethodPath())
-            .receive(this::parseResponseBody, swordList -> {
-               System.out.println("I, the great swordmaster of the northern kingdoms, shall carry the following swords:");
-
-               for (SwordVO sword : swordList) {
-                  System.out.printf("- %s (%s)%n", sword.name(), JsonUtil.toJson(sword.attributes()));
-               }
-
-               System.out.println("==================================================");
-               System.out.println("I now embark on my mission!");
-            });
+      System.out.println("I now embark on my mission!");
    }
 
    /**

@@ -17,5 +17,17 @@ package com.github.fsteitz.training.cli.client.common;
 
 public abstract class AbstractHttpClientApp<V> implements HttpClientApp<V> {
 
+   @Override
+   public void printCliOutput() {
+      printCliSeparator();
+      new TrainingHttpClient(getRemoteMethodPath()).receive(this::parseResponseBody, this::onResponseReceived);
+   }
+
+   protected void printCliSeparator() {
+      System.out.println("==================================================");
+   }
+
+   protected abstract void onResponseReceived(V value);
+
    protected abstract V parseResponseBody(String json);
 }

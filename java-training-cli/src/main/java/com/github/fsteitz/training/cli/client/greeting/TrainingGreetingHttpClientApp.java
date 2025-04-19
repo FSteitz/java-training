@@ -16,7 +16,6 @@
 package com.github.fsteitz.training.cli.client.greeting;
 
 import com.github.fsteitz.training.cli.client.common.AbstractHttpClientApp;
-import com.github.fsteitz.training.cli.client.common.TrainingHttpClient;
 import com.github.fsteitz.training.common.JsonUtil;
 
 public class TrainingGreetingHttpClientApp extends AbstractHttpClientApp<GreetingVO> {
@@ -26,19 +25,15 @@ public class TrainingGreetingHttpClientApp extends AbstractHttpClientApp<Greetin
    }
 
    @Override
-   public void printCliOutput() {
+   protected void onResponseReceived(GreetingVO greeting) {
+      System.out.println(greeting.text());
       System.out.println("==================================================");
-      new TrainingHttpClient(getRemoteMethodPath())
-            .receive(this::parseResponseBody, greeting -> {
-               System.out.println(greeting.text());
-               System.out.println("==================================================");
-               System.out.println("Thank you! I'm ready! ;-)");
-               System.out.println("""
-                        O      O
-                       /|\\    /|\\
-                       / \\    / \\
-                     """);
-            });
+      System.out.println("Thank you! I'm ready! ;-)");
+      System.out.println("""
+               O      O
+              /|\\    /|\\
+              / \\    / \\
+            """);
    }
 
    /**
