@@ -16,12 +16,13 @@
 package com.github.fsteitz.training.cli.client.sword;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.github.fsteitz.training.cli.client.common.HttpClientApp;
 import com.github.fsteitz.training.cli.client.common.TrainingHttpClient;
 import com.github.fsteitz.training.common.JsonUtil;
 
 import java.util.List;
 
-public class SwordHttpClientApp {
+public class SwordHttpClientApp implements HttpClientApp<List<SwordVO>> {
 
    private static final String CONTROLLER_PATH = "sword/list";
 
@@ -29,10 +30,10 @@ public class SwordHttpClientApp {
       new SwordHttpClientApp().printCliOutput();
    }
 
-   private void printCliOutput() {
+   public void printCliOutput() {
       System.out.println("==================================================");
       new TrainingHttpClient(CONTROLLER_PATH)
-            .receive(this::parseSwordList, swordList -> {
+            .receive(this::parseResponseBody, swordList -> {
                System.out.println("I, the great swordmaster of the northern kingdoms, shall carry the following swords:");
 
                for (SwordVO sword : swordList) {
@@ -44,7 +45,7 @@ public class SwordHttpClientApp {
             });
    }
 
-   private List<SwordVO> parseSwordList(String json) {
+   public List<SwordVO> parseResponseBody(String json) {
       return JsonUtil.fromJsonAsList(json, new TypeReference<>() {
       });
    }
