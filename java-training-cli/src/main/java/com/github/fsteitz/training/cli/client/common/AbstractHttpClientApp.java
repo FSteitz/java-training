@@ -19,11 +19,11 @@ public abstract class AbstractHttpClientApp<V> implements HttpClientApp<V> {
 
    @Override
    public void printCliOutput() {
-      printCliSeparator();
+      printCliSeparatorLine();
       new TrainingHttpClient(getRemoteMethodPath()).receive(this::parseResponseBody, this::onResponseReceived);
    }
 
-   protected void printCliSeparator() {
+   protected void printCliSeparatorLine() {
       System.out.println("==================================================");
    }
 

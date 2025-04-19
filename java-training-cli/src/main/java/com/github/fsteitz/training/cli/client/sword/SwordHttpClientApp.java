@@ -43,7 +43,7 @@ public class SwordHttpClientApp extends AbstractHttpClientApp<List<SwordVO>> {
          System.out.printf("- %s (%s)%n", sword.name(), JsonUtil.toJson(sword.attributes()));
       }
 
-      printCliSeparator();
+      printCliSeparatorLine();
       System.out.println("I now embark on my mission!");
    }
 
