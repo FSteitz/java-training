@@ -15,5 +15,11 @@
  */
 package com.github.fsteitz.training.springboot.greeting;
 
+/**
+ * Represents a greeting (containing only the text).
+ *
+ * @param text Text of the greeting
+ * @author Florian Steitz
+ */
 public record Greeting(String text) {
 }

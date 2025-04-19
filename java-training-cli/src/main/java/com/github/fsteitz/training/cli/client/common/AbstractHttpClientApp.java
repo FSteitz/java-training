@@ -15,19 +15,39 @@
  */
 package com.github.fsteitz.training.cli.client.common;
 
+/**
+ * Default implementation of {@link HttpClientApp} that shall be extended by all CLI applications that retrieve data
+ * from REST endpoints and generate console outputs based on their responses.
+ *
+ * @author Florian Steitz
+ */
 public abstract class AbstractHttpClientApp<V> implements HttpClientApp<V> {
 
+   /**
+    * {@inheritDoc}
+    */
    @Override
    public void printCliOutput() {
       printCliSeparatorLine();
       new TrainingHttpClient(getRemoteMethodPath()).receive(this::parseResponseBody, this::onResponseReceived);
    }
 
+   /**
+    * Outputs a single line that is supposed to visually separate other console outputs.
+    */
    protected void printCliSeparatorLine() {
       System.out.println("==================================================");
    }
 
+   /**
+    * Produces the console output based on the parsed object returned by the REST endpoint.
+    *
+    * @see #parseResponseBody(String)
+    */
    protected abstract void onResponseReceived(V value);
 
+   /**
+    * Parses the JSON body returned by the REST endpoint.
+    */
    protected abstract V parseResponseBody(String json);
 }

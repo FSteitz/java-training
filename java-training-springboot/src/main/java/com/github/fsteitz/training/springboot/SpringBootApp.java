@@ -15,16 +15,24 @@
  */
 package com.github.fsteitz.training.springboot;
 
+import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * For Bootstrapping the Spring Boot application.
+ *
+ * @author Florian Steitz
+ */
 @SpringBootApplication
 public class SpringBootApp {
 
+   /**
+    * Registers a custom {@link Banner} and then starts the Spring Boot application.
+    */
    public static void main(String[] args) {
       SpringApplication springApplication = new SpringApplication(SpringBootApp.class);
       springApplication.setBanner(new SpringBootBanner());
       springApplication.run(args);
    }
-
 }

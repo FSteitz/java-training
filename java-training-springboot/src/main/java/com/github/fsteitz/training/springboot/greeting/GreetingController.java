@@ -20,10 +20,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * REST controller for {@link Greeting} objects.
+ *
+ * @author Florian Steitz
+ */
 @RestController
 @RequestMapping("/greeting")
 public class GreetingController {
 
+   /**
+    * Returns a {@link Greeting} for sword training.
+    */
    @GetMapping(value = "/training", produces = MediaType.APPLICATION_JSON_VALUE)
    public Greeting greet() {
       return new Greeting("Welcome to the sword training!");

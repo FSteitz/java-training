@@ -21,8 +21,17 @@ import com.github.fsteitz.training.common.JsonUtil;
 
 import java.util.List;
 
+/**
+ * A simple CLI application retrieving all {@link SwordVO sword objects} of a REST endpoint and generating console
+ * output based on it.
+ *
+ * @author Florian Steitz
+ */
 public class SwordHttpClientApp extends AbstractHttpClientApp<List<SwordVO>> {
 
+   /**
+    * Runs the app.
+    */
    public static void main(String[] args) {
       new SwordHttpClientApp().printCliOutput();
    }
@@ -35,6 +44,9 @@ public class SwordHttpClientApp extends AbstractHttpClientApp<List<SwordVO>> {
       return "sword/list";
    }
 
+   /**
+    * Produces an RPG like console output based on the provided list of swords.
+    */
    @Override
    protected void onResponseReceived(List<SwordVO> swordList) {
       System.out.println("I, the great swordmaster of the northern kingdoms, shall carry the following swords:");

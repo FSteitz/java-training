@@ -15,8 +15,16 @@
  */
 package com.github.fsteitz.training.cli.welcome;
 
+/**
+ * A simple CLI application that only outputs text.
+ *
+ * @author Florian Steitz
+ */
 public class PrintWelcomeApp {
 
+   /**
+    * Runs the app.
+    */
    public static void main(String[] args) {
       System.out.println("Welcome to the sword training!");
       System.out.println("My name is Geralt of Rivia.");

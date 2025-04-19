@@ -18,8 +18,17 @@ package com.github.fsteitz.training.cli.client.greeting;
 import com.github.fsteitz.training.cli.client.common.AbstractHttpClientApp;
 import com.github.fsteitz.training.common.JsonUtil;
 
+/**
+ * A simple CLI application retrieving the {@link GreetingVO training greeting} of a REST endpoint and generating
+ * console output based on it.
+ *
+ * @author Florian Steitz
+ */
 public class TrainingGreetingHttpClientApp extends AbstractHttpClientApp<GreetingVO> {
 
+   /**
+    * Runs the app.
+    */
    public static void main(String[] args) {
       new TrainingGreetingHttpClientApp().printCliOutput();
    }
@@ -32,6 +41,10 @@ public class TrainingGreetingHttpClientApp extends AbstractHttpClientApp<Greetin
       return "greeting/training";
    }
 
+   /**
+    * Produces console output that reads like a conversation. It starts with the provided greeting and ends with ASCII
+    * art.
+    */
    @Override
    protected void onResponseReceived(GreetingVO greeting) {
       System.out.println(greeting.text());

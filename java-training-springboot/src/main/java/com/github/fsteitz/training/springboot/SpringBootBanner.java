@@ -20,11 +20,19 @@ import org.springframework.core.env.Environment;
 
 import java.io.PrintStream;
 
+/**
+ * Console / log banner für the Spring Boot application.
+ *
+ * @author Florian Steitz
+ */
 final class SpringBootBanner implements Banner {
 
    SpringBootBanner() {
    }
 
+   /**
+    * {@inheritDoc}
+    */
    @Override
    public void printBanner(Environment environment, Class<?> sourceClass, PrintStream out) {
       out.println(" _______  _______ _________ _______ __________________ _______   _________ _______  _______ _________ _       _________ _        _______ ");

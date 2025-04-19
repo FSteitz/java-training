@@ -22,10 +22,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * REST controller for {@link Sword} objects.
+ *
+ * @author Florian Steitz
+ */
 @RestController
 @RequestMapping("/sword")
 public class SwordController {
 
+   /**
+    * Returns a list containing all available {@link Sword} objects as JSON.
+    */
    @GetMapping(value = "/list", produces = MediaType.APPLICATION_JSON_VALUE)
    public List<Sword> list() {
       return List.of(

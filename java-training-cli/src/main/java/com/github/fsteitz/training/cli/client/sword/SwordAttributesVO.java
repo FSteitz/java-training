@@ -15,5 +15,12 @@
  */
 package com.github.fsteitz.training.cli.client.sword;
 
+/**
+ * Represents only the RPG attributes of a {@link SwordVO Sword}.
+ *
+ * @param damage  The damage the sword inflicts
+ * @param magical Whether the sword is infused with magic
+ * @author Florian Steitz
+ */
 public record SwordAttributesVO(int damage, boolean magical) {
 }
