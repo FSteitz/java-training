@@ -23,9 +23,13 @@ public class TrainingGreetingHttpClientApp {
    private static final String CONTROLLER_PATH = "greeting/training";
 
    public static void main(String[] args) {
+      new TrainingGreetingHttpClientApp().printCliOutput();
+   }
+
+   private void printCliOutput() {
       System.out.println("==================================================");
       new TrainingHttpClient(CONTROLLER_PATH)
-            .receive(TrainingGreetingHttpClientApp::parseGreeting, greeting -> {
+            .receive(this::parseGreeting, greeting -> {
                System.out.println(greeting.text());
                System.out.println("==================================================");
                System.out.println("Thank you! I'm ready! ;-)");
@@ -37,7 +41,7 @@ public class TrainingGreetingHttpClientApp {
             });
    }
 
-   private static GreetingVO parseGreeting(String json) {
+   private GreetingVO parseGreeting(String json) {
       return JsonUtil.fromJson(json, GreetingVO.class);
    }
 }

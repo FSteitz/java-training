@@ -26,9 +26,13 @@ public class SwordHttpClientApp {
    private static final String CONTROLLER_PATH = "sword/list";
 
    public static void main(String[] args) {
+      new SwordHttpClientApp().printCliOutput();
+   }
+
+   private void printCliOutput() {
       System.out.println("==================================================");
       new TrainingHttpClient(CONTROLLER_PATH)
-            .receive(SwordHttpClientApp::parseSwordList, swordList -> {
+            .receive(this::parseSwordList, swordList -> {
                System.out.println("I, the great swordmaster of the northern kingdoms, shall carry the following swords:");
 
                for (SwordVO sword : swordList) {
@@ -40,7 +44,7 @@ public class SwordHttpClientApp {
             });
    }
 
-   private static List<SwordVO> parseSwordList(String json) {
+   private List<SwordVO> parseSwordList(String json) {
       return JsonUtil.fromJsonAsList(json, new TypeReference<>() {
       });
    }
