@@ -35,7 +35,7 @@ public class TrainingGreetingHttpClientApp extends AbstractHttpClientApp<Greetin
    @Override
    protected void onResponseReceived(GreetingVO greeting) {
       System.out.println(greeting.text());
-      System.out.println("==================================================");
+      printCliSeparator();
       System.out.println("Thank you! I'm ready! ;-)");
       System.out.println("""
                O      O
