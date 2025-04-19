@@ -20,8 +20,11 @@ import com.github.fsteitz.training.common.JsonUtil;
 
 public class GreetingHttpClientApp {
 
+   private static final String CONTROLLER_PATH = "greeting/training";
+
    public static void main(String[] args) {
-      new TrainingHttpClient("greeting/training")
+      System.out.println("==================================================");
+      new TrainingHttpClient(CONTROLLER_PATH)
             .receive(GreetingHttpClientApp::parseGreeting, greeting -> {
                System.out.println(greeting.text());
                System.out.println("==================================================");
