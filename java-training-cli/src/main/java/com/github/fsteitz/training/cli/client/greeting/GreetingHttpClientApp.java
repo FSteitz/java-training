@@ -34,7 +34,7 @@ public class GreetingHttpClientApp {
             });
    }
 
-   private static ClientGreeting parseGreeting(String json) {
-      return JsonUtil.fromJson(json, ClientGreeting.class);
+   private static GreetingVO parseGreeting(String json) {
+      return JsonUtil.fromJson(json, GreetingVO.class);
    }
 }

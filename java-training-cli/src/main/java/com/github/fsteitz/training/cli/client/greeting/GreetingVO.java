@@ -15,5 +15,5 @@
  */
 package com.github.fsteitz.training.cli.client.greeting;
 
-public record ClientGreeting(String text) {
+public record GreetingVO(String text) {
 }
