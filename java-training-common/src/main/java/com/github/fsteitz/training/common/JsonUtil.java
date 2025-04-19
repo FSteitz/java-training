@@ -16,7 +16,10 @@
 package com.github.fsteitz.training.common;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.util.List;
 
 public final class JsonUtil {
 
@@ -37,6 +40,14 @@ public final class JsonUtil {
    public static <T> T fromJson(String json, Class<T> valueType) {
       try {
          return OBJECT_MAPPER.readValue(json, valueType);
+      } catch (JsonProcessingException e) {
+         throw new TrainingException("JSON could not be parsed", e);
+      }
+   }
+
+   public static <T> List<T> fromJsonAsList(String json, TypeReference<List<T>> valueTypeReference) {
+      try {
+         return OBJECT_MAPPER.readValue(json, valueTypeReference);
       } catch (JsonProcessingException e) {
          throw new TrainingException("JSON could not be parsed", e);
       }
