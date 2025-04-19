@@ -15,7 +15,7 @@
  */
 package com.github.fsteitz.training.cli.client.common;
 
-public interface HttpClientApp<V> {
+public abstract class AbstractHttpClientApp<V> implements HttpClientApp<V> {
 
-   void printCliOutput();
+   protected abstract V parseResponseBody(String json);
 }

@@ -15,11 +15,11 @@
  */
 package com.github.fsteitz.training.cli.client.greeting;
 
-import com.github.fsteitz.training.cli.client.common.HttpClientApp;
+import com.github.fsteitz.training.cli.client.common.AbstractHttpClientApp;
 import com.github.fsteitz.training.cli.client.common.TrainingHttpClient;
 import com.github.fsteitz.training.common.JsonUtil;
 
-public class TrainingGreetingHttpClientApp implements HttpClientApp<GreetingVO> {
+public class TrainingGreetingHttpClientApp extends AbstractHttpClientApp<GreetingVO> {
 
    private static final String CONTROLLER_PATH = "greeting/training";
 
@@ -27,6 +27,7 @@ public class TrainingGreetingHttpClientApp implements HttpClientApp<GreetingVO> 
       new TrainingGreetingHttpClientApp().printCliOutput();
    }
 
+   @Override
    public void printCliOutput() {
       System.out.println("==================================================");
       new TrainingHttpClient(CONTROLLER_PATH)
@@ -42,7 +43,8 @@ public class TrainingGreetingHttpClientApp implements HttpClientApp<GreetingVO> 
             });
    }
 
-   public GreetingVO parseResponseBody(String json) {
+   @Override
+   protected GreetingVO parseResponseBody(String json) {
       return JsonUtil.fromJson(json, GreetingVO.class);
    }
 }
