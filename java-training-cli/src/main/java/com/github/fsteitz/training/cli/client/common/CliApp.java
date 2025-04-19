@@ -16,21 +16,14 @@
 package com.github.fsteitz.training.cli.client.common;
 
 /**
- * Interface that shall be implemented by all CLI applications that retrieve data from REST endpoints and generate
- * console outputs based on their responses.
+ * Interface that shall be implemented by all CLI applications.
  *
  * @author Florian Steitz
  */
-public interface HttpClientApp extends CliApp {
+public interface CliApp {
 
    /**
-    * Generates the console output based on a response of a REST endpoint.
+    * Generates the console output.
     */
-   @Override
    void printCliOutput();
-
-   /**
-    * Returns the path of a REST method (including the base path of its REST controller). It must not return a full URL!
-    */
-   String getRemoteMethodPath();
 }

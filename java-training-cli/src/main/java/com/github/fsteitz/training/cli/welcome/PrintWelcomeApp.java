@@ -15,17 +15,27 @@
  */
 package com.github.fsteitz.training.cli.welcome;
 
+import com.github.fsteitz.training.cli.client.common.CliApp;
+
 /**
  * A simple CLI application that only outputs text.
  *
  * @author Florian Steitz
  */
-public class PrintWelcomeApp {
+public class PrintWelcomeApp implements CliApp {
 
    /**
     * Runs the app.
     */
    public static void main(String[] args) {
+      new PrintWelcomeApp().printCliOutput();
+   }
+
+   /**
+    * Produces an RPG like console output based on the world of The Witcher.
+    */
+   @Override
+   public void printCliOutput() {
       System.out.println("Welcome to the sword training!");
       System.out.println("My name is Geralt of Rivia.");
       System.out.println("Draw your sword, Ciri!");
